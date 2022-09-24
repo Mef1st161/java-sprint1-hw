@@ -1,3 +1,4 @@
+package com.practicum.sprint1.app;
 public class Converter {
 
     private final double CALORIE_RATIO = 50.0;

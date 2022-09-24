@@ -1,7 +1,8 @@
+package com.practicum.sprint1.app;
 import java.util.Scanner;
 
 public class StepTracker {
-    Converter converter = new Converter();
+    private final Converter converter = new Converter();
     private final MonthData[] monthToData;
     private int stepGoal;
 
@@ -14,10 +15,10 @@ public class StepTracker {
     }
 
     private static class MonthData {
-        int[] dayValue = new int[30];
+        private final int[] dayValue = new int[30];
     }
 
-    public void showMonthData(int month) {
+    public void showMonthStatistics(int month) {
         for (int i = 0; i < monthToData[month].dayValue.length; i++) {
             System.out.println((i + 1) + " день: " + monthToData[month].dayValue[i]);
         }
@@ -37,20 +38,22 @@ public class StepTracker {
 
         double averageValueSteps = stepsPerMonth / 30d;
         System.out.println("Среднее количество шагов за месяц " + averageValueSteps);
-        System.out.println("Пройденное растояние: " + converter.getKilometres(stepsPerMonth));
-        System.out.println("Количество сожженых калорий: " + converter.getKcal(stepsPerMonth));
+        System.out.println("Пройденное расстояние: " + converter.getKilometres(stepsPerMonth));
+        System.out.println("Количество сожжённых калорий: " + converter.getKcal(stepsPerMonth));
         int streakCount = 0;
         int maxStreakCount = 0;
         for (int i = 0; i < monthToData[month].dayValue.length; i++) {
             if (monthToData[month].dayValue[i] >= stepGoal) {
                 streakCount +=1;
-            }
-            if (maxStreakCount < streakCount) {
-                maxStreakCount = streakCount;
+                if (maxStreakCount < streakCount) {
+                    maxStreakCount = streakCount;
+                }
             }
             else {
-                 streakCount = 0;
+                streakCount = 0;
             }
+
+
         }
 
         System.out.println("Лучшая серия достигнутых целей за месяц " + maxStreakCount);
