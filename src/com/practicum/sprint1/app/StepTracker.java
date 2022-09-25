@@ -1,4 +1,5 @@
 package com.practicum.sprint1.app;
+
 import java.util.Scanner;
 
 public class StepTracker {
@@ -52,7 +53,6 @@ public class StepTracker {
             else {
                 streakCount = 0;
             }
-
 
         }
 

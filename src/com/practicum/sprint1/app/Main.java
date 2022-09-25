@@ -1,4 +1,5 @@
 package com.practicum.sprint1.app;
+
 import java.util.Scanner;
 
 public class Main {
@@ -6,9 +7,8 @@ public class Main {
     private static final int STEP_GOAL_EDIT_MENU = 3;
     private static final int STATISTICS_PRINT_MENU = 2;
     private static final int STEP_PER_DAY_INSERT_MENU = 1;
+
     public static void main(String[] args) {
-
-
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker();
         printMenu();
